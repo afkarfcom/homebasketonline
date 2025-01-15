@@ -3,44 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Website Migration Announcement</title>
+    <title>Peralihan Website</title>
     <style>
         body {
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-image: url('125.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
-        .frame {
-            background-color: rgba(255, 255, 255, 0.8);
-            padding: 40px;
-            border-radius: 10px;
+            font-family: sans-serif;
             text-align: center;
-            max-width: 600px;
+            padding: 20px;
+        }
+        .content-container {
+            border: 1px solid #ccc; /* Border untuk container */
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 600px; /* Lebar container */
         }
         .logo-container {
             margin-bottom: 20px;
         }
         .logo {
-            max-width: 100px; /* Adjust the size as needed */
+            max-width: 200px;
             height: auto;
         }
-        h1 {
+        .english-content, .indonesian-content {
             margin-bottom: 20px;
         }
-        p {
-            line-height: 1.6;
+        #countdown {
+            font-size: 2em;
+            margin-top: 20px;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .redirect-text {
+            margin-top: 10px;
+            font-style: italic;
+            color: #888;
         }
     </style>
 </head>
 <body>
-    <div class="frame">
+    <div class="content-container">
         <div class="logo-container">
             <img src="logo.png" alt="Home Basket Logo" class="logo">
         </div>
@@ -58,5 +63,24 @@
             <p>Terima kasih atas dukungan Anda!</p>
         </div>
     </div>
+    <p class="redirect-text">You will be automatically redirected in <span id="countdown">5</span> seconds.</p>
+
+    <script>
+        let countdown = 10;
+        const countdownDisplay = document.getElementById('countdown');
+
+        function updateCountdown() {
+            countdownDisplay.textContent = countdown;
+            countdown--;
+
+            if (countdown < 0) {
+                window.location.href = "https://homebasketbali.com";
+            } else {
+                setTimeout(updateCountdown, 1000);
+            }
+        }
+
+        updateCountdown();
+    </script>
 </body>
 </html>
